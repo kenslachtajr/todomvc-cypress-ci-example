@@ -48,7 +48,6 @@ describe('TodoMVC', function () {
     context('New Todo', function () {
 
       it('should allow me to add todo items', function () {
-        // create 1st todo
         cy.get('.new-todo')
         .type(TODO_ITEM_ONE)
         .type('{enter}')
@@ -81,7 +80,7 @@ describe('TodoMVC', function () {
         .type('{enter}')
   
         cy.get('.todo-list li')
-        .eq(2)
+        .eq(3)
         .find('label')
         .should('contain', TODO_ITEM_FOUR)
       })
@@ -94,7 +93,7 @@ describe('TodoMVC', function () {
         .type('todo C{enter}') // and keep adding new items
         .type('todo D{enter}')
         .type('todo E{enter}')
-        cy.get('.todo-list li').should('have.length', 4)
+        cy.get('.todo-list li').should('have.length', 5)
       })
   
       it('should clear text input field when an item is added', function () {
@@ -206,7 +205,9 @@ describe('TodoMVC', function () {
     context('Item', function () {
   
       it('should allow me to mark items as complete', function () {
+        // @ts-ignore
         cy.createTodo(TODO_ITEM_ONE).as('firstTodo')
+        // @ts-ignore
         cy.createTodo(TODO_ITEM_TWO).as('secondTodo')
   
         cy.get('@firstTodo')
@@ -278,9 +279,7 @@ describe('TodoMVC', function () {
     })
   
     context('Editing', function () {
-      // New commands used here:
-      // - cy.blur    https://on.cypress.io/api/blur
-  
+
       beforeEach(function () {
         // @ts-ignore
         cy.createDefaultTodos().as('todos')
