@@ -17,3 +17,5 @@ jobs:
           parallel: true
           build: npm run build
           start: npm start
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.SECRET_KEY }}
