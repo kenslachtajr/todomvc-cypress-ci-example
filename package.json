@@ -8,7 +8,7 @@
     "test": "cypress run",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
-    "cypress:record": "cypress run --record"
+    "cypress:record": "cypress run --record --key 4fbf151f-2a77-4733-b354-9dcbd918631f"
   },
   "dependencies": {
     "todomvc-app-css": "2.3.0",
